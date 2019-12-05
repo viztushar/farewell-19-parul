@@ -14,15 +14,16 @@
 <body>
     <button type="button" onclick="myFunction()">Click Me!</button>
     <script type='text/javascript'>
+        function myFunction() {
+            window.Print.postMessage('Hello World being called from Javascript code');
+        }
+    </script>
+    <script type='text/javascript'>
         window.addEventListener("location", function (event) {
 
             alert("received: " + event.data);
 
         });
-
-        function myFunction() {
-            window.Print.postMessage('Hello World being called from Javascript code');
-        }
     </script>
 </body>
 
