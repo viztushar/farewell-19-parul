@@ -13,11 +13,17 @@
 
 <body>
     <button type="button" onclick="myFunction()">Click Me!</button>
+    <p id="p1">Hello World!</p>
     <script type='text/javascript'>
         function myFunction() {
-  Print.postMessage('Hello World being called from Javascript code');
-}
-        
+            Print.postMessage('Hello World being called from Javascript code');
+        }
+
+
+        function location(locationdata) {
+            var data = locationdata;
+            document.getElementById("p1").innerHTML = data;
+        }
     </script>
 </body>
 
