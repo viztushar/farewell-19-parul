@@ -17,12 +17,12 @@
     <script type='text/javascript'>
         function myFunction() {
             Print.postMessage('Hello World being called from Javascript code');
-            location("tushar");
         }
 
-        function location(locationdata) {
-            var data = locationdata;
-            document.getElementById("p1").innerHTML = data;
+        function add(num1, num2) {
+            var result = num1 + num2;
+            document.getElementById("result").innerHTML
+                = num1 + " + " + num2 + " = " + result;
         }
     </script>
 </body>
