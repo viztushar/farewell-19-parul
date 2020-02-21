@@ -22,6 +22,8 @@
              console.log("ready");
              window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
+                  document.getElementById("p1").innerHTML
+                = result;
                console.log(result);
              });
            });
@@ -48,6 +50,8 @@
             console.log("ready2");
              window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
+                 document.getElementById("p1").innerHTML
+                = result;
                console.log(result);
              });
            });
