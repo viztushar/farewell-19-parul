@@ -40,8 +40,8 @@
             document.getElementById("p1").innerHTML
                 = num1;
         }
-        setTimeout(function(){ alert("Hello"); }, 3000);
-        setTimeout(myFunction(),5000);
+        setTimeout(function(){ myFunction()}, 5000);
+        
         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
              // call flutter handler with name 'mySum' and pass one or more arguments
             console.log("ready2");
