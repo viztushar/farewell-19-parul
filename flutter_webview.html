@@ -17,6 +17,13 @@
     <script type='text/javascript'>
         function myFunction() {
             Print.postMessage('Hello World being called from Javascript code');
+             window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
+             // call flutter handler with name 'mySum' and pass one or more arguments
+             window.flutter_inappwebview.callHandler('myLocation', 1).then(function(result) {
+               // get result from Flutter side. It will be the number 64.
+               console.log(result);
+             });
+           });
         }
 
         function add(num1, num2) {
@@ -33,13 +40,8 @@
             document.getElementById("p1").innerHTML
                 = num1;
         }
-         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-             // call flutter handler with name 'mySum' and pass one or more arguments
-             window.flutter_inappwebview.callHandler('myLocation', 1).then(function(result) {
-               // get result from Flutter side. It will be the number 64.
-               console.log(result);
-             });
-           });
+        setTimeout(myFunction,5000);
+        
     </script>
 </body>
 
