@@ -19,6 +19,7 @@
             //Print.postMessage('Hello World being called from Javascript code');
              window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
              console.log("ready");
+                 alert("MyF");
              window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
                console.log(result);
