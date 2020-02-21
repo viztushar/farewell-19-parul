@@ -33,6 +33,13 @@
             document.getElementById("p1").innerHTML
                 = num1;
         }
+         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
+             // call flutter handler with name 'mySum' and pass one or more arguments
+             window.flutter_inappwebview.callHandler('myLocation', 1).then(function(result) {
+               // get result from Flutter side. It will be the number 64.
+               console.log(result);
+             });
+           });
     </script>
 </body>
 
