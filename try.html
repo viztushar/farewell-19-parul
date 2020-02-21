@@ -13,11 +13,37 @@
 
 <body>
     <button type="button" onclick="myFunction()">Click Me!</button>
+    <p id="p1">Hello World!</p>
     <script type='text/javascript'>
         function myFunction() {
-            Print.postMessage('Hello World being called from Javascript code');
+             window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
+             // call flutter handler with name 'mySum' and pass one or more arguments
+             window.flutter_inappwebview.callHandler('myLocation', 1).then(function(result) {
+               // get result from Flutter side. It will be the number 64.
+               console.log(result);
+             });
+           });
         }
+
+        function add(num1, num2) {
+            document.getElementById("p1").innerHTML
+                = "Lat: " + num1 + " Long: " + num2;
+        }
+        
+        function locationshow(num1, num2) {
+            document.getElementById("p1").innerHTML
+                = "Lat: " + num1 + " Long: " + num2;
+        }
+        
+        function add2(num1) {
+            document.getElementById("p1").innerHTML
+                = num1;
+        }
+        setTimeout(myFunction,5000);
+        
     </script>
 </body>
 
 </html>
+
+<!--"Uncaught SyntaxError: missing ) after argument list"-->
