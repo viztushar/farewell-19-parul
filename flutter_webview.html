@@ -18,7 +18,7 @@
         function myFunction() {
             //Print.postMessage('Hello World being called from Javascript code');
              window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-             // call flutter handler with name 'mySum' and pass one or more arguments
+             console.log("ready);
              window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
                console.log(result);
@@ -43,7 +43,7 @@
         setTimeout(myFunction,5000);
         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
              // call flutter handler with name 'mySum' and pass one or more arguments
-            console.log(event);
+            console.log("ready);
              window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
                console.log(result);
