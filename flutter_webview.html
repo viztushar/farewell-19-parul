@@ -41,7 +41,7 @@
             document.getElementById("p1").innerHTML
                 = num1;
         }
-        setTimeout(function(){ myFunction()}, 5000);
+        setTimeout(function(){
         
         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
              // call flutter handler with name 'mySum' and pass one or more arguments
@@ -51,6 +51,7 @@
                console.log(result);
              });
            });
+         }, 6000);
     </script>
 </body>
 
