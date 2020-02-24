@@ -58,12 +58,25 @@
         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
              // call flutter handler with name 'mySum' and pass one or more arguments
             console.log("ready2");
-             window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
+            const message = "value";
+if (window.flutter_inappwebview.callHandler) {
+  window.flutter_inappwebview.callHandler('myLocation', message);
+    window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
                  document.getElementById("p1").innerHTML
                 = result;
                console.log(result);
              });
+} else {
+   window.flutter_inappwebview._callHandler('myLocation', setTimeout(function(){}), JSON.stringify([message]));
+     window.flutter_inappwebview._callHandler('myLocation').then(function(result) {
+               // get result from Flutter side. It will be the number 64.
+                 document.getElementById("p1").innerHTML
+                = result;
+               console.log(result);
+             });
+}
+            
            });
          }, 6000);
     </script>
