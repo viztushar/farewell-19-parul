@@ -19,13 +19,27 @@
             alert(333);
             //Print.postMessage('Hello World being called from Javascript code');
              window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-             console.log("ready");
-             window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
+              console.log("ready");
+            const message = "value";
+if (window.flutter_inappwebview.callHandler) {
+  window.flutter_inappwebview.callHandler('myLocation', message);
+    window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                // get result from Flutter side. It will be the number 64.
-                  document.getElementById("p1").innerHTML
+                 document.getElementById("p1").innerHTML
                 = result;
                console.log(result);
              });
+} else {
+   window.flutter_inappwebview._callHandler('myLocation', setTimeout(function(){}), JSON.stringify([message]));
+     window.flutter_inappwebview._callHandler('myLocation').then(function(result) {
+               // get result from Flutter side. It will be the number 64.
+                 document.getElementById("p1").innerHTML
+                = result;
+               console.log(result);
+             });
+}
+            
+           });
            });
         }
 
@@ -51,7 +65,7 @@
                 = "without addEventListener " + result;
                console.log(result);
              });
-         }, 6000);
+         }, 26000);
         
         setTimeout(function(){
         
