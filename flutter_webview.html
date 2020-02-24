@@ -48,7 +48,7 @@
         
              window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
                  document.getElementById("p1").innerHTML
-                = result;
+                = "without addEventListener " + result;
                console.log(result);
              });
          }, 6000);
