@@ -43,6 +43,12 @@
             document.getElementById("p1").innerHTML
                 = num1;
         }
+        window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
+               // get result from Flutter side. It will be the number 64.
+                 document.getElementById("p1").innerHTML
+                = result;
+               console.log(result);
+             });
         setTimeout(function(){
         
         window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
