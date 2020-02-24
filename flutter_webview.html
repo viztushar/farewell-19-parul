@@ -2,98 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flutter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flutter</title>
 
 
 </head>
 
 <body>
-    <button type="button" onclick="myFunction()">Click Me!</button>
-    <p id="p1">Hello World!</p>
-    <script type='text/javascript'>
-        function myFunction() {
-            alert(333);
-            //Print.postMessage('Hello World being called from Javascript code');
-             window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-              console.log("ready");
-            const message = "value";
-if (window.flutter_inappwebview.callHandler) {
-  window.flutter_inappwebview.callHandler('myLocation', message);
-    window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
-               // get result from Flutter side. It will be the number 64.
-                 document.getElementById("p1").innerHTML
-                = result;
-               console.log(result);
-             });
-} else {
-   window.flutter_inappwebview._callHandler('myLocation', setTimeout(function(){}), JSON.stringify([message]));
-     window.flutter_inappwebview._callHandler('myLocation').then(function(result) {
-               // get result from Flutter side. It will be the number 64.
-                 document.getElementById("p1").innerHTML
-                = result;
-               console.log(result);
-             });
-}
-            
-           });
-           });
+  <button type="button" onclick="myFunction()">Click Me!</button>
+  <p id="p1">Hello World!</p>
+  <script type='text/javascript'>
+    function myFunction() {
+      alert(333);
+      //Print.postMessage('Hello World being called from Javascript code');
+      window.addEventListener("flutterInAppWebViewPlatformReady", function (event) {
+        console.log("ready");
+        const message = "value";
+        if (window.flutter_inappwebview.callHandler) {
+          window.flutter_inappwebview.callHandler('myLocation', message);
+          window.flutter_inappwebview.callHandler('myLocation').then(function (result) {
+            // get result from Flutter side. It will be the number 64.
+            document.getElementById("p1").innerHTML
+              = result;
+            console.log(result);
+          });
+        } else {
+          window.flutter_inappwebview._callHandler('myLocation', setTimeout(function () { }), JSON.stringify([message]));
+          window.flutter_inappwebview._callHandler('myLocation').then(function (result) {
+            // get result from Flutter side. It will be the number 64.
+            document.getElementById("p1").innerHTML
+              = result;
+            console.log(result);
+          });
         }
 
-        function add(num1, num2) {
+      });
+    }
+
+    function add(num1, num2) {
+      document.getElementById("p1").innerHTML
+        = "Lat: " + num1 + " Long: " + num2;
+    }
+
+    function locationshow(num1, num2) {
+      document.getElementById("p1").innerHTML
+        = "Lat: " + num1 + " Long: " + num2;
+    }
+
+    function add2(num1) {
+      document.getElementById("p1").innerHTML
+        = num1;
+    }
+    setTimeout(function () {
+
+
+      window.flutter_inappwebview.callHandler('myLocation').then(function (result) {
+        document.getElementById("p1").innerHTML
+          = "without addEventListener " + result;
+        console.log(result);
+      });
+    }, 26000);
+
+    setTimeout(function () {
+
+      window.addEventListener("flutterInAppWebViewPlatformReady", function (event) {
+        // call flutter handler with name 'mySum' and pass one or more arguments
+        console.log("ready2");
+        const message = "value";
+        if (window.flutter_inappwebview.callHandler) {
+          window.flutter_inappwebview.callHandler('myLocation', message);
+          window.flutter_inappwebview.callHandler('myLocation').then(function (result) {
+            // get result from Flutter side. It will be the number 64.
             document.getElementById("p1").innerHTML
-                = "Lat: " + num1 + " Long: " + num2;
-        }
-        
-        function locationshow(num1, num2) {
+              = result;
+            console.log(result);
+          });
+        } else {
+          window.flutter_inappwebview._callHandler('myLocation', setTimeout(function () { }), JSON.stringify([message]));
+          window.flutter_inappwebview._callHandler('myLocation').then(function (result) {
+            // get result from Flutter side. It will be the number 64.
             document.getElementById("p1").innerHTML
-                = "Lat: " + num1 + " Long: " + num2;
+              = result;
+            console.log(result);
+          });
         }
-        
-        function add2(num1) {
-            document.getElementById("p1").innerHTML
-                = num1;
-        }
-       setTimeout(function(){
-        
-        
-             window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
-                 document.getElementById("p1").innerHTML
-                = "without addEventListener " + result;
-               console.log(result);
-             });
-         }, 26000);
-        
-        setTimeout(function(){
-        
-        window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-             // call flutter handler with name 'mySum' and pass one or more arguments
-            console.log("ready2");
-            const message = "value";
-if (window.flutter_inappwebview.callHandler) {
-  window.flutter_inappwebview.callHandler('myLocation', message);
-    window.flutter_inappwebview.callHandler('myLocation').then(function(result) {
-               // get result from Flutter side. It will be the number 64.
-                 document.getElementById("p1").innerHTML
-                = result;
-               console.log(result);
-             });
-} else {
-   window.flutter_inappwebview._callHandler('myLocation', setTimeout(function(){}), JSON.stringify([message]));
-     window.flutter_inappwebview._callHandler('myLocation').then(function(result) {
-               // get result from Flutter side. It will be the number 64.
-                 document.getElementById("p1").innerHTML
-                = result;
-               console.log(result);
-             });
-}
-            
-           });
-         }, 6000);
-    </script>
+
+      });
+    }, 6000);
+  </script>
 </body>
 
 </html>
